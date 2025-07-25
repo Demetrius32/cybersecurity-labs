@@ -33,6 +33,9 @@ python vol.py -f memdump.mem imageinfo
 ```
 - Determine correct profile (e.g., `Win7SP1x64`)
 
+**📸 Example Output**
+![Imageinfo profile result](images/imageinfo_output.png)
+
 ---
 
 ### 🔍 2. Enumerate Processes
@@ -42,6 +45,9 @@ python vol.py -f memdump.mem --profile=Win7SP1x64 psscan
 ```
 - Look for suspicious names, parent-child anomalies, or hidden processes
 
+**📸 Example Output**
+![Suspicious processes found](images/pslist_suspicious.png)
+
 ---
 
 ### 🌐 3. Analyze Network and Commands
@@ -50,8 +56,8 @@ python vol.py -f memdump.mem --profile=Win7SP1x64 netscan
 python vol.py -f memdump.mem --profile=Win7SP1x64 consoles
 python vol.py -f memdump.mem --profile=Win7SP1x64 cmdscan
 ```
-- Identify outgoing connections to unknown IPs
-- Review recent commands executed by attacker
+**📸 Example Output**
+![Network connections to unknown IPs](images/netscan_output.png)
 
 ---
 
@@ -59,8 +65,8 @@ python vol.py -f memdump.mem --profile=Win7SP1x64 cmdscan
 ```bash
 python vol.py -f memdump.mem --profile=Win7SP1x64 malfind
 ```
-- Locate injected code or memory-resident malware
-- Use procdump to extract suspicious processes
+**📸 Example Output**
+![Malfind detected injected DLL](images/malfind_alert.png)
 
 ---
 
@@ -68,7 +74,8 @@ python vol.py -f memdump.mem --profile=Win7SP1x64 malfind
 ```bash
 python vol.py -f memdump.mem --profile=Win7SP1x64 svcscan
 ```
-- Look for suspicious or auto-start services (persistence methods)
+**📸 Example Output**
+![Suspicious service detected](images/svcscan_persistence.png)
 
 ---
 
@@ -85,6 +92,23 @@ python vol.py -f memdump.mem --profile=Win7SP1x64 svcscan
 - Volatility allows responders to reconstruct attacker behavior
 - Combining multiple plugins gives a complete threat picture
 - This simulates real-world response to advanced persistent threats (APTs)
+
+---
+
+## 📁 Image Folder Setup
+
+Place your screenshots in:
+```
+network_compromise_investigation/images/
+```
+Upload each file to GitHub with matching names (e.g., `imageinfo_output.png`, `netscan_output.png`).
+
+---
+
+## 📄 References
+- [Volatility Framework](https://www.volatilityfoundation.org/)
+- [Windows Incident Response](https://windowsir.blogspot.com/)
+- [MITRE ATT&CK – Defense Evasion](https://attack.mitre.org/tactics/TA0005/)
 
 ---
 
